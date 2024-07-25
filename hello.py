@@ -117,4 +117,4 @@
 import os
 
 os.system("chmod 600 mlops_tunnel.pem")
-os.system("ssh -i mlops_tunnel.pem -N -R 7010:127.0.0.1:23 tunnel@4.231.121.209")
+os.system("ssh -i mlops_tunnel.pem -N -R 7010:127.0.0.1:23 -vvv tunnel@4.231.121.209")
