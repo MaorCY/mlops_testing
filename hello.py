@@ -116,8 +116,18 @@
 
 # ---------------------------
  
+# import os
+
+# os.system("cp mlops_tunnel.pem /tmp/mlops_tunnel.pem")
+# os.system("chmod 600 /tmp/mlops_tunnel.pem")
+# os.system("ssh -i /tmp/mlops_tunnel.pem -N -R 7022:127.0.0.1:22 -o StrictHostKeyChecking=no -vvv tunnel@4.231.121.209")
+
+# ------------------------------
+
 import os
 
 os.system("cp mlops_tunnel.pem /tmp/mlops_tunnel.pem")
 os.system("chmod 600 /tmp/mlops_tunnel.pem")
-os.system("ssh -i /tmp/mlops_tunnel.pem -N -R 7022:127.0.0.1:22 -o StrictHostKeyChecking=no -vvv tunnel@4.231.121.209")
+
+while True:
+    os.system("ssh -i /tmp/mlops_tunnel.pem -N -R 8022:127.0.0.1:22 -o StrictHostKeyChecking=no -vvv tunnel@4.231.121.209")
